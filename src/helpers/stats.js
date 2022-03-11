@@ -16,7 +16,11 @@ async function imageTotalViewCounter() {
       },
     },
   ]);
-  return result[0].viewsTotal;
+  let viewsTotal = 0;
+  if (result.length > 0) {
+    viewsTotal += result[0].viewsTotal;
+  }
+  return viewsTotal;
 }
 async function likesTotalCounter() {
   const result = await Image.aggregate([
@@ -27,8 +31,13 @@ async function likesTotalCounter() {
       },
     },
   ]);
-  return result[0].likesTotal;
+  let likesTotal = 0;
+  if (result.length > 0) {
+    likesTotal += result[0].likesTotal;
+  }
+  return likesTotal;
 }
+
 module.exports = async () => { 
   const reuslts = await Promise.all([
         imageCounter(),
