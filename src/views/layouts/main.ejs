@@ -1,0 +1,22 @@
+<%- include('head'); %>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <img src="/public/img/imgShare-logo.png" alt="imgShare">
+            </a>
+        </div>
+        </div>
+    </nav>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8">
+                <%- include('body'); %>
+            </div>
+            <div class="col align-self-end">
+                <%- include('../partials/stats.ejs'); %>
+                <%- include('../partials/popular'); %>
+            </div>
+        </div>
+    </div>
+    <%- include('scripts');%>
+ </html>

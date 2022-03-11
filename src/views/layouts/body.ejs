@@ -1,0 +1,49 @@
+<body>
+    <div class="card">
+        <div class="card-header bg-dark">
+            <h3 class="card-title text-white">
+                <i class="far fa-image"></i> Upload Image
+            </h3>
+        </div>
+        <div class="card-body">
+            <form action="/images" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="inputGroup"
+                                aria-describedby="inputGroupFileAddon" required>
+                            <label class="custom-file-label" for="inputGroupFile">Chopse File</label>
+                        </div>
+                    </div>
+                    <div class="form-group p-2">
+                        <input type="text" name="title" class="form-control" placeholder="Title for the image" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="description" rows="2" class="form-control" placeholder="Insert your description"
+                            required></textarea>
+                    </div>
+                    <div class="form-group p-2">
+                        <button class="btn btn-success">
+                            <i class="fa fa-upload"></i> Upload Image
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+<div class="card mt-2 ">
+    <div class="card-header g-dark">
+        <h3><i class="far fa-images"></i> Recen Uploads</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <% images.forEach(function(images) { %>
+        <div class="col-md-4">
+            <a href="/images/<%= images.uniqueId %>">
+                <img src="/public/upload/<%= images.filename %>" alt="" class="w-60 h-60 img-thumbnail">
+            </a>
+        </div>
+            <% }); %>
+      </div>
+    </div>
+</div>
